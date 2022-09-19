@@ -2,14 +2,14 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import MovieBox from "./MovieBox";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar,Container,Nav,Form, FormControl,Button } from 'react-bootstrap';
+import { Navbar,Container,Nav,Form,FormControl,Button } from 'react-bootstrap';
 
-const API_URL ="https://api.themoviedb.org/3/movie/popular?api_key=76238dbeed661feb84abd22bb8bbc17c";
+const API_URL =`https://api.themoviedb.org/3/movie/popular?api_key=76238dbeed661feb84abd22bb8bbc17c&`;
 
 function App() {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState('');
-
+  
   useEffect(() => {
     fetch(API_URL)
       .then((res) => res.json())
@@ -42,9 +42,8 @@ function App() {
     <>
     <Navbar bg="dark" expand="lg" variant="dark">
       <Container fluid>
-        <Navbar.Brand href="/home">App</Navbar.Brand>
+        <Navbar.Brand href="/home" bg="dark">Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll"></Navbar.Toggle>
-
           <Navbar.Collapse id="nabarScroll">
             <Nav 
             className="me-auto my-2 my-lg-3"
