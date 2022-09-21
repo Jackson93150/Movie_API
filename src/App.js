@@ -53,7 +53,7 @@ function App() {
             <Form className="d-flex" onSubmit={searchMovie} autoComplete="off">
               <FormControl
               type="search"
-              placeholder="Movie Search"
+              placeholder="Search..."
               className="me-2"
               aria-label="search"
               name="query"
@@ -63,11 +63,18 @@ function App() {
           </Navbar.Collapse>
       </Container>
     </Navbar>
-      <div className="container">
+    <div>
+      {movies.length > 0 ?(
+        <div className="container">
         <div className="grid">
-          {movies.map((movieReq)=><MovieBox key={movieReq.id} {...movieReq}/>)}
-        </div>
-      </div>
+          {movies.map((movieReq)=>
+          <MovieBox key={movieReq.id} {...movieReq}/>)}
+            </div>
+    </div>
+      ):(
+        <h2>Sorry !! No Movies Found</h2>
+      )}
+    </div>  
     </>
   );
 }
