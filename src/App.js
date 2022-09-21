@@ -22,6 +22,9 @@ function App() {
   const searchMovie = async(e)=>{
     e.preventDefault();
     console.log('Searching');
+    if(!query){
+      return;
+    }
     try{
       const url=`https://api.themoviedb.org/3/search/movie?api_key=76238dbeed661feb84abd22bb8bbc17c&query=${query}`;
       const res= await fetch(url);
@@ -35,6 +38,7 @@ function App() {
   }
 
   const changeHandler=(e)=>{
+    console.log(e);
     setQuery(e.target.value);
   }
 
